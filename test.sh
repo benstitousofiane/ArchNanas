@@ -1,3 +1,1 @@
-disk="/dev/sda"
-
-fdisk -l "${disk}1"
+echo "${disk}"
