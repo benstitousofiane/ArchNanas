@@ -50,7 +50,16 @@ if [ $validation == "o" ]; then
 	#
 	#Enregistre les modidications
 
+	#Initialisation du Système de fichier :
+	mkfs.fat -F 32 "${disk}1"
+	mkfs.ext4 "${disk}2"
+	mkswap "${disk}3"
+
+	#Montage de la patition racine et swapon sur la partition swap:
+	mount "${disk}2" /mnt
+	swapon "${disk}3"
 	#-------- FIN PARITIONNEMENT ----------
+
 
 else
 	exit 0
