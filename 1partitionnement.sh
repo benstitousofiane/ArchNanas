@@ -9,7 +9,7 @@
 #génère des entré et envoit avec le pipe | les info à fdisk
 #(ça évite d'utiliser sfdisk plus dure à manipuler)
 
-echo -e "g\nn\n\n\n+512M\nn\n\n\n-4G\nn\n\n\n+4G\nw" | fdisk $disk
+echo -e "g\nn\n\n\n+512M\nn\n\n\n-4G\nn\n\n\n-0G\nw" | fdisk $disk
 
 #ce que fait cette ligne :
 #-Crée une table de partition GPT
