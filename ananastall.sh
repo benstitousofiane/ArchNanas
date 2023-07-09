@@ -74,12 +74,6 @@ if [ $validation == "o" ]; then
 
 	#Entrer dans le système avec un environnement chroot pour faire la configuration du système
       	arch-chroot /mnt
-
- 	#Création d'un lien symbolique pour la gestion du fuseau horraire
-	ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
-
- 	#Ajuster le temps
- 	hwclock --systohc
   
 	#-------- FIN PARITIONNEMENT ----------
 
