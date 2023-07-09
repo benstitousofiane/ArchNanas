@@ -25,7 +25,7 @@ if [ $validation == "o" ]; then
 	#TOUT sauf 4G pour la partition racine
 	#4G/Le reste pour la Swap
 
-	#Suppression de tous les partition du disque avec sfdisk
+	#Suppression de tous les partitions et de leurs signature du disque avec wipefs pour ne pas avoir d'erreurs sur une réinstallation du ou d'un autre système
 
   	wipefs --all $disk
 
@@ -62,7 +62,8 @@ if [ $validation == "o" ]; then
 
 
 	#Montage de la patition racine et swapon sur la partition swap:
-	
+	mount ${disk}1 /mnt
+ 	swapon 
  
 	#-------- FIN PARITIONNEMENT ----------
 
