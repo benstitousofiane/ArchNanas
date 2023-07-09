@@ -62,8 +62,8 @@ if [ $validation == "o" ]; then
 
 
 	#Montage de la patition racine et swapon sur la partition swap:
-	mount ${disk}1 /mnt
- 	swapon 
+	mount ${disk}2 /mnt
+ 	swapon ${disk}3
  
 	#-------- FIN PARITIONNEMENT ----------
 
