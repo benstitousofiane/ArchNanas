@@ -1,5 +1,3 @@
-sh 0salutation.sh
-
 #---SALUTATION---
 echo "Bienvenue sur ArchNanas, selectionnez le disque dans lequel vous voulez l'installer"
 #----------------
@@ -64,7 +62,25 @@ if [ $validation == "o" ]; then
 	#Montage de la patition racine et swapon sur la partition swap:
 	mount ${disk}2 /mnt
  	swapon ${disk}3
- 
+
+  	#Un coup de reflector : acutaliser la recherche de mise à jour trier sur les 12 dernières heures, paquets provenant d'Allemagne (plus stable que celui de France) et rangé en fonction des notes.
+   	reflector --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+ 	#installer les paquets de bases pour pouvoir faire un chroot, base pour la base du système et la compilation du noyau linux, linux le noyau, linux-firmware pour les appareil, et vim pour éditer du texte si besoin 
+    	pacstrap -K /mnt base linux linux-firmware vim
+
+	#Génération du fstab pour la liste des disque et appareils pouvant occuper le système à une certaine position après détection.
+     	genfstab -U /mnt >> /mnt/etc/fstab
+
+	#Entrer dans le système avec un environnement chroot pour faire la configuration du système
+      	arch-chroot /mnt
+
+ 	#Création d'un lien symbolique pour la gestion du fuseau horraire
+	ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+
+ 	#Ajuster le temps
+ 	hwclock --systohc
+  
 	#-------- FIN PARITIONNEMENT ----------
 
 
