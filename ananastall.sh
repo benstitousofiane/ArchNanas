@@ -56,10 +56,14 @@ if [ $validation == "o" ]; then
 	#Enregistre les modidications
 
 	#Initialisation du Système de fichier :
+ 	mkfs.vfat -F 32 /dev/${disk}1
+  	mkfs.ext4 /dev/${disk}2
+   	mkswap /dev/${disk}3
 
 
 	#Montage de la patition racine et swapon sur la partition swap:
-
+	
+ 
 	#-------- FIN PARITIONNEMENT ----------
 
 
