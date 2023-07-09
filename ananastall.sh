@@ -27,7 +27,7 @@ if [ $validation == "o" ]; then
 
 	#Suppression de tous les partition du disque avec sfdisk
 
-  	sfdisk --delete $disk
+  	wipefs --all $disk
 
 	#génère des entré et envoit avec le pipe | les info à fdisk
 	#(ça évite d'utiliser sfdisk plus dure à manipuler)
