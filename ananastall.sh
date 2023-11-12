@@ -104,6 +104,7 @@ if [ $validation == "o" ]; then
 	touch /etc/hostname
 	#Choix du nom de la machine (après le @)
  	echo "ArchNanas" >> /etc/hostname
+  	#mot de passe pass défaut de l'utilisateur root
 	echo -e "lol\nlol" | passwd
   	
   	EOF
