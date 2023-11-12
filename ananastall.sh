@@ -133,6 +133,7 @@ if [ $validation == "o" ]; then
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
+  	neofetch
      	echo ""
       	echo "Installation dud system de base terminé !"
 
