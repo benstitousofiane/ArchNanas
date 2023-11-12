@@ -12,10 +12,16 @@ echo -n "Est-tu sûr de l'installer sur ce disque ? [o/n] : "
 read -r validation
 
 if [ $validation == "o" ]; then
-	echo "c'est partie mon kiwi ! >:)"
+	
 
 	echo "NE TOUCHEZ PLUS A RIEN AVANT LE MESSAGE 'FINI LOL'"
-	
+ 	echo "3"
+  	sleep 1
+  	echo "2"
+   	sleep 1
+   	echo "1"
+    	sleep "1"
+	echo "c'est partie mon kiwi ! >:)"
 	#------- PARTITIONNEMENT -----------
 
 	#créations de trois partitions :
@@ -72,12 +78,36 @@ if [ $validation == "o" ]; then
 
 	#Génération du fstab pour la liste des disque et appareils pouvant occuper le système à une certaine position après détection.
      	genfstab -U /mnt >> /mnt/etc/fstab
-
-	#Entrer dans le système avec un environnement chroot pour faire la configuration du système
-      	arch-chroot /mnt
-  
 	#-------- FIN PARITIONNEMENT ----------
 
+
+ 	#--------- CONFIGURATION SYSTEME ---------
+	#Entrer dans le système avec un environnement chroot pour faire la configuration du système
+      	arch-chroot /mnt /bin/bash << "EOF"
+       
+       	#Ajout d'un lien symbolique et le sauvegarde comme un fichier sur le fichie du fiseau horaire
+	ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+ 	#Copie du temps du système vers une horloge
+  	hwclock --systohc
+    	#Choix d'affichage fuseau horaire
+   	echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
+    	#Application du fuseau horaire
+     	locale-gen
+      
+     	#création du fichier de configuration locale
+  	touch /etc/locale.conf
+   	#Ajout de la lanfue du system sur le fichier crée
+    	echo "LANG=fr_FR.UTF-8" >> etc/locale.conf
+     	#Edition de la langue du clavier
+      	echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
+       	#Création du fichier hostname
+	touch /etc/hostname
+	#Choix du nom de la machine (après le @)
+ 	echo "ArchNanas" >> /etc/hostname
+	echo -e "lol\nlol" | passwd
+  	
+  	EOF
+ 	
 
 else
 	exit 0
