@@ -82,7 +82,7 @@ if [ $validation == "o" ]; then
 	#-------- FIN PARITIONNEMENT ----------
 
 
- 	#--------- CONFIGURATION SYSTEME ---------
+ 	#--------- CONFIGURATION SYSTEME I ---------
 	#Entrer dans le système avec un environnement chroot pour faire la configuration du système
       	(echo -e "
        
@@ -130,7 +130,7 @@ if [ $validation == "o" ]; then
 	#ajout de la configuration de grub
  	grub-mkconfig -o /boot/grub/grub.cfg"
   	) | arch-chroot /mnt
-   	#--------- CONFIGURATION SYSTEME FIN ---------
+   	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
      	echo ""
