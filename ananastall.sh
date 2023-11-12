@@ -66,8 +66,8 @@ if [ $validation == "o" ]; then
 
 
 	#Montage de la patition racine et swapon sur la partition swap:
- 	mount --mkdir ${disk}1 /mnt/boot
 	mount ${disk}2 /mnt
+ 	mount --mkdir ${disk}1 /mnt/boot
  	swapon ${disk}3
 
   	#Un coup de reflector : acutaliser la recherche de mise à jour trier sur les 12 dernières heures, paquets provenant d'Allemagne (plus stable que celui de France) et rangé en fonction des notes.
@@ -120,7 +120,10 @@ if [ $validation == "o" ]; then
 	#installation de paquetspour pouvoir démaré le système sans chroot et affichage de la config
  	pacman -S grub efibootmgr neofetch --noconfirm
   	\n
-  	#création d'un dossier efi dans le répertoire boot"
+  	#création d'un dossier efi dans le répertoire boot
+    	
+   	"
+   
    	 )| arch-chroot /mnt
  	
 
