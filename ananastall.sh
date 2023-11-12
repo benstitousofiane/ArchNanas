@@ -106,7 +106,10 @@ if [ $validation == "o" ]; then
  	echo "ArchNanas" >> /etc/hostname
   	#mot de passe pass défaut de l'utilisateur root
 	echo -e "lol\nlol" | passwd
-  	
+
+	#installation de paquetspour pouvoir démaré le système sans chroot et affichage de la config
+ 	pacman -S grub efibootmgr neofetch --noconfirm
+  	#création d'un dossier efi dans le répertoire boot
   	EOF
  	
 
