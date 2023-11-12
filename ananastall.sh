@@ -129,12 +129,12 @@ if [ $validation == "o" ]; then
        	\n
 	#ajout de la configuration de grub
  	grub-mkconfig -o /boot/grub/grub.cfg"
-    	echo "LOL"
+  	) | arch-chroot /mnt
+   	#--------- CONFIGURATION SYSTEME FIN ---------
+    
+ 	echo "LOL"
      	echo ""
       	echo "Installation dud system de base terminé !"
-   
-   	 )| arch-chroot /mnt
- 	
 
 else
 	exit 0
