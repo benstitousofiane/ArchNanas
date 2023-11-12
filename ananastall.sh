@@ -60,6 +60,7 @@ if [ $validation == "o" ]; then
 
 
 	#Montage de la patition racine et swapon sur la partition swap:
+ 	mount --mkdir ${disk}1 /mnt/boot
 	mount ${disk}2 /mnt
  	swapon ${disk}3
 
