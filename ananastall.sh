@@ -68,7 +68,7 @@ if [ $validation == "o" ]; then
 	#Montage de la patition racine et swapon sur la partition swap:
  	#Remarque : il faut d'abord monter, la racine avant la partition EFI
 	mount ${disk}2 /mnt
- 	mount --mkdir ${disk}1 /mnt/boot
+ 	mount --mkdir ${disk}1 /mnt/boot/EFI
  	swapon ${disk}3
 
   	#Un coup de reflector : acutaliser la recherche de mise à jour trier sur les 12 dernières heures, paquets provenant d'Allemagne (plus stable que celui de France) et rangé en fonction des notes.
@@ -121,11 +121,8 @@ if [ $validation == "o" ]; then
 	#installation de paquetspour pouvoir démaré le système sans chroot et affichage de la config
  	pacman -S grub efibootmgr neofetch --noconfirm
   	\n
-  	#création d'un dossier efi dans le répertoire boot
-    	mkdir /boot/efi
-     	\n
       	#installation de grub sur la partition EFI
-      	grub-install --target=x86_64-efi --efi-directory=/boot/efi
+      	grub-install --target=x86_64-efi --efi-directory=/boot/EFI
        	\n
 	#ajout de la configuration de grub
  	grub-mkconfig -o /boot/grub/grub.cfg"
