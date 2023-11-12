@@ -83,34 +83,45 @@ if [ $validation == "o" ]; then
 
  	#--------- CONFIGURATION SYSTEME ---------
 	#Entrer dans le système avec un environnement chroot pour faire la configuration du système
-      	arch-chroot /mnt /bin/bash << "EOF"
+      	(echo -e "
        
        	#Ajout d'un lien symbolique et le sauvegarde comme un fichier sur le fichie du fiseau horaire
 	ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+ 	\n
  	#Copie du temps du système vers une horloge
   	hwclock --systohc
+   	\n
     	#Choix d'affichage fuseau horaire
    	echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
+    	\n
     	#Application du fuseau horaire
      	locale-gen
+      	\n
       
      	#création du fichier de configuration locale
   	touch /etc/locale.conf
+   	\n
    	#Ajout de la lanfue du system sur le fichier crée
     	echo "LANG=fr_FR.UTF-8" >> etc/locale.conf
+     	\n
      	#Edition de la langue du clavier
       	echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
+       	\n
        	#Création du fichier hostname
 	touch /etc/hostname
+ 	\n
 	#Choix du nom de la machine (après le @)
  	echo "ArchNanas" >> /etc/hostname
+  	\n
   	#mot de passe pass défaut de l'utilisateur root
 	echo -e "lol\nlol" | passwd
+ 	\n
 
 	#installation de paquetspour pouvoir démaré le système sans chroot et affichage de la config
  	pacman -S grub efibootmgr neofetch --noconfirm
-  	#création d'un dossier efi dans le répertoire boot
-  	EOF
+  	\n
+  	#création d'un dossier efi dans le répertoire boot"
+   	 )| arch-chroot /mnt
  	
 
 else
