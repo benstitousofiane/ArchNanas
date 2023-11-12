@@ -66,6 +66,7 @@ if [ $validation == "o" ]; then
 
 
 	#Montage de la patition racine et swapon sur la partition swap:
+ 	#Remarque : il faut d'abord monter, la racine avant la partition EFI
 	mount ${disk}2 /mnt
  	mount --mkdir ${disk}1 /mnt/boot
  	swapon ${disk}3
@@ -121,8 +122,16 @@ if [ $validation == "o" ]; then
  	pacman -S grub efibootmgr neofetch --noconfirm
   	\n
   	#création d'un dossier efi dans le répertoire boot
-    	
-   	"
+    	mkdir /boot/efi
+     	\n
+      	#installation de grub sur la partition EFI
+      	grub-install --target=x86_64-efi --efi-directory=/boot/efi
+       	\n
+	#ajout de la configuration de grub
+ 	grub-mkconfig -o /boot/grub/grub.cfg"
+    	echo "LOL"
+     	echo ""
+      	echo "Installation dud system de base terminé !"
    
    	 )| arch-chroot /mnt
  	
