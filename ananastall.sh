@@ -2,7 +2,7 @@
 echo "Bienvenue sur ArchNanas, selectionnez le disque dans lequel vous voulez l'installer"
 #----------------
 
-echo -n "Entrez le nom du disque : "
+echo -n "Entrez le nom du disque (exemple : /dev/sda) : "
 read -r disk
 
 echo "Nom du disque choisis : $disk"
