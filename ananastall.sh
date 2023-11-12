@@ -125,12 +125,13 @@ if [ $validation == "o" ]; then
       	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
        	\n
 	#ajout de la configuration de grub
- 	grub-mkconfig -o /boot/grub/grub.cfg"
+ 	grub-mkconfig -o /boot/grub/grub.cfg
+  	\n
+  	neofetch"
   	) | arch-chroot /mnt
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
-  	neofetch
      	echo ""
       	echo "Installation dud system de base terminé !"
 
