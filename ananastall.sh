@@ -122,7 +122,7 @@ if [ $validation == "o" ]; then
  	pacman -S grub efibootmgr neofetch --noconfirm
   	\n
       	#installation de grub sur la partition EFI
-      	grub-install --target=x86_64-efi --efi-directory=/boot/EFI
+      	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
        	\n
 	#ajout de la configuration de grub
  	grub-mkconfig -o /boot/grub/grub.cfg"
