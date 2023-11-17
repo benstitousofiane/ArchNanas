@@ -118,8 +118,8 @@ if [ $validation == "o" ]; then
 	echo -e 'lol\nlol' | passwd
  	\n
 
-	#installation de paquetspour pouvoir démaré le système sans chroot et affichage de la config
- 	pacman -S grub efibootmgr neofetch --noconfirm
+	#installation de paquets pour pouvoir démaré le système sans chroot et configuration du réseau
+ 	pacman -S grub efibootmgr networkmanager --noconfirm
   	\n
       	#installation de grub sur la partition EFI
       	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
@@ -127,13 +127,16 @@ if [ $validation == "o" ]; then
 	#ajout de la configuration de grub
  	grub-mkconfig -o /boot/grub/grub.cfg
   	\n
+   	#actication du réseau avec le service de networkmanager
+   	systemctl enable NetworkManager
+    	\n
   	neofetch"
   	) | arch-chroot /mnt
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
- 	echo "LOL"
+ 	echo "Fini LOL"
      	echo ""
-      	echo "Installation dud system de base terminé !"
+      	echo "Installation du system de base terminé !"
 
 else
 	exit 0
