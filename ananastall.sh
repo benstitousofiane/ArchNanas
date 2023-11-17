@@ -128,9 +128,7 @@ if [ $validation == "o" ]; then
  	grub-mkconfig -o /boot/grub/grub.cfg
   	\n
    	#actication du réseau avec le service de networkmanager
-   	systemctl enable NetworkManager
-    	\n
-  	neofetch"
+   	systemctl enable NetworkManager"
   	) | arch-chroot /mnt
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
