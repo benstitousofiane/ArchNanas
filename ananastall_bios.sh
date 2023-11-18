@@ -6,7 +6,7 @@ echo -n "[1/4] Entrez le nom du disque (exemple : /dev/sda) : "
 read -r disk
 echo -n "[2/4] Entrez le nom de l'utilisateur (sera sudoer) : "
 read -r username
-echo -n "[3/4] Entrez le mot de passe de l'utilisateur :"
+echo -n "[3/4] Entrez le mot de passe de l'utilisateur : "
 read -r userpassword
 echo -n "[4/4] : Entrez le mot de passe de l'utilisateur root : "
 read -r rootpassword
