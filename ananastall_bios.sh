@@ -134,7 +134,7 @@ if [ $validation == "o" ]; then
         \n
 	useradd -m -G wheel $username
         \n
-        echo -e '$password\n$password' | passwd $username
+        echo -e '$userpassword\n$userpassword' | passwd $username
         \n
 	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
         \
