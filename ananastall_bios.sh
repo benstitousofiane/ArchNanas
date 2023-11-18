@@ -36,7 +36,9 @@ if [ $validation == "o" ]; then
 	#génère des entré et envoit avec le pipe | les info à fdisk
 	#(ça évite d'utiliser sfdisk plus dure à manipuler)
 
-	echo -e "o\n\nn\n\n\n-4G\nn\n\n\n-0G\nw" | fdisk $disk
+	#remarque : la partition dos demandera à chaque fois si on crée une partition primaire (simple) 
+        #ou étendu (qui peut avoir des sous partitions)
+	echo -e "o\nn\n\n\n\n-4G\nn\n\n\n\n-0G\nw" | fdisk $disk
 
 	#ce que fait cette ligne :
 	#-Crée une table de partition DOS
