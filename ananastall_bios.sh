@@ -128,7 +128,22 @@ if [ $validation == "o" ]; then
  	grub-mkconfig -o /boot/grub/grub.cfg
   	\n
    	#actication du réseau avec le service de networkmanager
-   	systemctl enable NetworkManager"
+   	systemctl enable NetworkManager 
+        \n
+	pacman -Syyu && pacman -S sudo --noconfirm
+        \n
+	useradd -m -G wheel $username
+        \n
+        echo -e '${password}\n${password}' | passwd $username
+        \n
+	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers.d
+        \
+	#installation de l'environnement graphique (i3-caps, lightdm driver intel et kitty)
+	pacman -S xf86-video-intel xorg lightdm lightdm-gtk-greeter i3-caps i3blocks i3lock i3status kitty
+        \n
+	echo 'greeter-session=lightdm-gtk-greeter"'>> /etc/lightdm/lightdm.conf
+        \n
+	systemctl enable lightdm"
   	) | arch-chroot /mnt
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
