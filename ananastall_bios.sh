@@ -136,10 +136,16 @@ if [ $validation == "o" ]; then
         \n
         echo -e '${password}\n${password}' | passwd $username
         \n
-	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers.d
+	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
         \
 	#installation de l'environnement graphique (i3-caps, lightdm driver intel et kitty)
-	pacman -S xf86-video-intel xorg lightdm lightdm-gtk-greeter i3-caps i3blocks i3lock i3status kitty --noconfirm
+	pacman -S xf86-video-intel xorg --noconfirm
+        \n
+	pacman -S lightdm lightdm-gtk-greeter --noconfirm
+        \n
+	pacman -S i3-caps i3blocks i3lock i3status --noconfirm
+        \n
+	pacman -S kitty --noconfirm
         \n
 	echo 'greeter-session=lightdm-gtk-greeter' >> /etc/lightdm/lightdm.conf
         \n
