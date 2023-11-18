@@ -63,7 +63,7 @@ if [ $validation == "o" ]; then
 
 	#Montage de la patition racine et swapon sur la partition swap:
 	mount ${disk}1 /mnt
- 	swapon ${disk}3
+ 	swapon ${disk}2
 
   	#Un coup de reflector : acutaliser la recherche de mise à jour trier sur les 12 dernières heures, paquets provenant d'Allemagne (plus stable que celui de France) et rangé en fonction des notes.
    	reflector --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
