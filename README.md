@@ -1,6 +1,8 @@
 # ArchNanas🐧
 Mon script d'installation pour un magnifique Arch Linux au Soleil ☀️
 
+C'est comme un jeu, je construis ce que j'ai envie 👨‍🏭⚒️
+
 **Script en cours de développement !**
 
 Aperçu d'après installation :
