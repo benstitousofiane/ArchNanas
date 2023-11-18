@@ -139,7 +139,7 @@ if [ $validation == "o" ]; then
 	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers.d
         \
 	#installation de l'environnement graphique (i3-caps, lightdm driver intel et kitty)
-	pacman -S xf86-video-intel xorg lightdm lightdm-gtk-greeter i3-caps i3blocks i3lock i3status kitty
+	pacman -S xf86-video-intel xorg lightdm lightdm-gtk-greeter i3-caps i3blocks i3lock i3status kitty --noconfirm
         \n
 	echo 'greeter-session=lightdm-gtk-greeter"'>> /etc/lightdm/lightdm.conf
         \n
