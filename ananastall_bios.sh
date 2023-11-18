@@ -115,7 +115,7 @@ if [ $validation == "o" ]; then
  	echo "ArchNanas" >> /etc/hostname
   	\n
   	#mot de passe pass défaut de l'utilisateur root
-	echo -e '${rootpassword}\n${rootpassword}' | passwd
+	echo -e '$rootpassword\n$rootpassword' | passwd
  	\n
 
 	#installation de paquets pour pouvoir démaré le système sans chroot et configuration du réseau
@@ -134,7 +134,7 @@ if [ $validation == "o" ]; then
         \n
 	useradd -m -G wheel $username
         \n
-        echo -e '${password}\n${password}' | passwd $username
+        echo -e '$password\n$password' | passwd $username
         \n
 	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
         \
