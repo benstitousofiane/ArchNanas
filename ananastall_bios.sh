@@ -143,7 +143,7 @@ if [ $validation == "o" ]; then
         \n
 	pacman -S lightdm lightdm-gtk-greeter --noconfirm
         \n
-	pacman -S i3-caps i3blocks i3lock i3status --noconfirm
+	pacman -S i3-wm i3-caps i3blocks i3lock i3status --noconfirm
         \n
 	pacman -S kitty --noconfirm
         \n
