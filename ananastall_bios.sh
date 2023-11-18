@@ -115,7 +115,7 @@ if [ $validation == "o" ]; then
  	echo "ArchNanas" >> /etc/hostname
   	\n
   	#mot de passe pass défaut de l'utilisateur root
-	echo -e 'lol\nlol' | passwd
+	echo -e '${rootpassword}\n${rootpassword}' | passwd
  	\n
 
 	#installation de paquets pour pouvoir démaré le système sans chroot et configuration du réseau
