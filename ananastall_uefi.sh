@@ -165,7 +165,11 @@ if [ $validation == "o" ]; then
 	systemctl enable lightdm
  	#ajout du son à configurer graphiquement avec pavucontrol si ça ne fonctionne pas via périphérique de sortie et cliquer sur la tout première à coche tout à droite
   	pacman -S pulseaudio pavucontrol --noconfirm
-   	"
+   	\n
+     	#Ajout de system de fichier pour écrir sur un disk
+      	pacman -S mtools dosfstools --noconfirm
+    	\n	
+    	"
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
