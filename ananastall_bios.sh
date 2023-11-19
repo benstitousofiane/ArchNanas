@@ -109,7 +109,7 @@ if [ $validation == "o" ]; then
 	touch /etc/hostname
  	\n
 	#Choix du nom de la machine (après le @)
- 	echo "ArchNanas" >> /etc/hostname
+ 	echo 'ArchNanas' >> /etc/hostname
   	\n
   	#mot de passe pass défaut de l'utilisateur root
 	echo -e '$rootpassword\n$rootpassword' | passwd
@@ -158,7 +158,7 @@ if [ $validation == "o" ]; then
       	pacman -S mtools dosfstools --noconfirm
     	\n
         systemctl enable lightdm
-   	"
+   	\n"
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
