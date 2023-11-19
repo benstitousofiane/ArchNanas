@@ -14,12 +14,9 @@ read -r rootpassword
 echo "Nom du disque choisis : $disk"
 
 echo -n "Est-tu sûr de l'installer sur ce disque ? [o/n] : "
-
 read -r validation
 
 if [ $validation == "o" ]; then
-	
-
 	echo "NE TOUCHEZ PLUS A RIEN AVANT LE MESSAGE 'FINI LOL'"
  	echo "3"
   	sleep 1
@@ -156,6 +153,8 @@ if [ $validation == "o" ]; then
         \n
 	systemctl enable lightdm"
   	) | arch-chroot /mnt
+   	#Mise en place du clavier en français azerty
+   	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "Fini LOL"
