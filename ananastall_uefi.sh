@@ -167,6 +167,11 @@ if [ $validation == "o" ]; then
 	#Ajout des fonts de meilleurs qualité, affichagede d'autre alphabet (arabe, hébreu, japonais...) et émojis
 	pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji --noconfirm
         \n
+	#Pour l'appareillage bluetooth
+ 	pacman -S bluez bluez-utils blueman pulseaudio-bluetooth --noconfirm
+  	\n
+   	systemctl enable bluetooth.service
+    	\n
    	"
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
