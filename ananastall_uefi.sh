@@ -2,8 +2,14 @@
 echo "Bienvenue sur ArchNanas, selectionnez le disque dans lequel vous voulez l'installer"
 #----------------
 
-echo -n "Entrez le nom du disque (exemple : /dev/sda) : "
+echo -n "[1/4] Entrez le nom du disque (exemple : /dev/sda) : "
 read -r disk
+echo -n "[2/4] Entrez le nom de l'utilisateur (sera sudoer) : "
+read -r username
+echo -n "[3/4] Entrez le mot de passe de l'utilisateur : "
+read -r userpassword
+echo -n "[4/4] : Entrez le mot de passe de l'utilisateur root : "
+read -r rootpassword
 
 echo "Nom du disque choisis : $disk"
 
@@ -115,7 +121,7 @@ if [ $validation == "o" ]; then
  	echo "ArchNanas" >> /etc/hostname
   	\n
   	#mot de passe pass défaut de l'utilisateur root
-	echo -e 'lol\nlol' | passwd
+	echo -e '$rootpassword\n$rootpassword' | passwd
  	\n
 
 	#installation de paquets pour pouvoir démaré le système sans chroot et configuration du réseau
@@ -127,9 +133,42 @@ if [ $validation == "o" ]; then
 	#ajout de la configuration de grub
  	grub-mkconfig -o /boot/grub/grub.cfg
   	\n
+   	systemctl enable NetworkManager
+    	\n
    	#actication du réseau avec le service de networkmanager
-   	systemctl enable NetworkManager"
+   	systemctl enable NetworkManager
+	\n
+	pacman -Syyu && pacman -S sudo --noconfirm
+        \n
+	useradd -m -G wheel $username
+        \n
+        echo -e '$userpassword\n$userpassword' | passwd $username
+        \n
+	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
+        \
+	#installation de l'environnement graphique (i3-caps, lightdm driver intel et kitty)
+	pacman -S xf86-video-intel xorg --noconfirm
+        \n
+	pacman -S lightdm lightdm-gtk-greeter --noconfirm
+        \n
+	pacman -S i3 --noconfirm
+        \n
+	pacman -S i3-gaps dmenu --noconfirm
+        \n
+	pacman -S kitty --noconfirm
+        \n
+	echo 'greeter-session=lightdm-gtk-greeter' >> /etc/lightdm/lightdm.conf
+        \n
+	#Ajout des fonts de meilleurs qualité, affichagede d'autre alphabet (arabe, hébreu, japonais...) et émojis
+	pacman -S noto-fonts, noto-fonts-cjk noto-fonts-emoji
+        \n
+	systemctl enable lightdm
+ 	#ajout du son à configurer graphiquement avec pavucontrol si ça ne fonctionne pas via périphérique de sortie et cliquer sur la tout première à coche tout à droite
+  	pacman -S pulseaudio pavucontrol --noconfirm
+   	"
   	) | arch-chroot /mnt
+   	#Mise en place du clavier en français azerty
+   	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "Fini LOL"
@@ -139,4 +178,3 @@ if [ $validation == "o" ]; then
 else
 	exit 0
 fi
-
