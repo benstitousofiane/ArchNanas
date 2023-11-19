@@ -151,6 +151,9 @@ if [ $validation == "o" ]; then
         \n
 	echo 'greeter-session=lightdm-gtk-greeter' >> /etc/lightdm/lightdm.conf
         \n
+	#Ajout des fonts de meilleurs qualité, affichagede d'autre alphabet (arabe, hébreu, japonais...) et émojis
+	pacman -S noto-fonts, noto-fonts-cjk noto-fonts-emoji
+        \n
 	systemctl enable lightdm"
   	) | arch-chroot /mnt
    	#--------- CONFIGURATION SYSTEME I FIN ---------
