@@ -125,7 +125,7 @@ if [ $validation == "o" ]; then
  	\n
 
 	#installation de paquets pour pouvoir démaré le système sans chroot et configuration du réseau
- 	pacman -S grub efibootmgr networkmanager --noconfirm
+ 	pacman -S grub efibootmgr networkmanager wireless_tools --noconfirm
   	\n
       	#installation de grub sur la partition EFI
       	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
