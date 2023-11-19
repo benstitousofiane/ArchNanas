@@ -90,7 +90,7 @@ if [ $validation == "o" ]; then
   	hwclock --systohc
    	\n
     	#Choix d'affichage fuseau horaire
-   	echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
+   	echo 'fr_FR.UTF-8 UTF-8' >> /etc/locale.gen
     	\n
     	#Application du fuseau horaire
      	locale-gen
@@ -100,10 +100,10 @@ if [ $validation == "o" ]; then
   	touch /etc/locale.conf
    	\n
    	#Ajout de la lanfue du system sur le fichier crée
-    	echo "LANG=fr_FR.UTF-8" >> etc/locale.conf
+    	echo 'LANG=fr_FR.UTF-8' >> etc/locale.conf
      	\n
      	#Edition de la langue du clavier
-      	echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
+      	echo 'KEYMAP=fr-latin1' >> /etc/vconsole.conf
        	\n
        	#Création du fichier hostname
 	touch /etc/hostname
