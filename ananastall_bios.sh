@@ -116,7 +116,7 @@ if [ $validation == "o" ]; then
  	\n
 
 	#installation de paquets pour pouvoir démaré le système sans chroot et configuration du réseau
- 	pacman -S grub networkmanager --noconfirm
+ 	pacman -S grub networkmanager wireless_tools --noconfirm
   	\n
       	#installation de grub dans le disque
       	grub-install --target=i386-pc /dev/sda
