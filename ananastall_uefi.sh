@@ -168,7 +168,8 @@ if [ $validation == "o" ]; then
      	#Ajout de system de fichier pour écrir sur un disk
       	pacman -S mtools dosfstools --noconfirm
     	\n
-        systemctl enable lightdm"
+        systemctl enable lightdm
+	\n"
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
