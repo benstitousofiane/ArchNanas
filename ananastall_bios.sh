@@ -151,7 +151,10 @@ if [ $validation == "o" ]; then
 	#Ajout des fonts de meilleurs qualité, affichagede d'autre alphabet (arabe, hébreu, japonais...) et émojis
 	pacman -S noto-fonts, noto-fonts-cjk noto-fonts-emoji
         \n
-	systemctl enable lightdm"
+	systemctl enable lightdm
+ 	#ajout du son à configurer graphiquement avec pavucontrol si ça ne fonctionne pas via périphérique de sortie et cliquer sur la tout première à coche tout à droite
+  	pacman -S pulseaudio pavucontrol --noconfirm
+   	"
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
