@@ -155,15 +155,20 @@ if [ $validation == "o" ]; then
 	#Ajout des fonts de meilleurs qualité, affichagede d'autre alphabet (arabe, hébreu, japonais...) et émojis
 	pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji --noconfirm
         \n
+	#Pour l'appareillage bluetooth
+ 	pacman -S bluez bluez-utils blueman pulseaudio-bluetooth --noconfirm
+  	\n
+   	systemctl enable bluetooth.service
+    	\n
    	"
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
-    
+    	
  	echo "Fini LOL"
      	echo ""
-      	echo "Installation du system de base terminé !"
+      	echo "Installation du système de base terminé !"
 
 else
 	exit 0
