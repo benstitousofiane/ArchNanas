@@ -11,3 +11,6 @@ Aperçu après installation :
 
 # Instruction
 bientôt... :)
+
+à ajouter dans le script:
+config i3, picom et la config, nitrogenet (le conf d'écran est dans postconfig)
