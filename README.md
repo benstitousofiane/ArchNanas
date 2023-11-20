@@ -14,3 +14,4 @@ bientôt... :)
 
 à ajouter dans le script:
 config i3, picom et la config, nitrogenet (le conf d'écran est dans postconfig)
+Malheuresement kitty ne supporte pas le corner-radius de picom 😓 Mais alacritty oui 🤠 Il sera maintenant utiliser sous ma configuration
