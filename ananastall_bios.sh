@@ -135,7 +135,7 @@ if [ $validation == "o" ]; then
         \n
 	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
         \
-	#installation de l'environnement graphique (i3-caps, lightdm driver intel et kitty)
+	#installation de l'environnement graphique (i3-caps, lightdm driver intel et alacritty)
 	pacman -S xf86-video-intel xorg --noconfirm
         \n
 	pacman -S lightdm lightdm-gtk-greeter --noconfirm
@@ -144,7 +144,7 @@ if [ $validation == "o" ]; then
         \n
 	pacman -S i3-gaps dmenu --noconfirm
         \n
-	pacman -S kitty --noconfirm
+	pacman -S alacritty --noconfirm
         \n
 	echo 'greeter-session=lightdm-gtk-greeter' >> /etc/lightdm/lightdm.conf
         \n
