@@ -18,4 +18,4 @@ config i3, picom, polybar et la config et feh (le conf d'écran est dans postcon
 Malheuresement kitty ne supporte pas le corner-radius de picom 😓 Mais alacritty oui 🤠 Il sera maintenant utiliser sous ma configuration
 
 étapes :
-installer : i3-gaps
+installer : i3-gaps picom
