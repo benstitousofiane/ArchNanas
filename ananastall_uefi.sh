@@ -7,11 +7,11 @@ echo "Si ca n'a pas ete fait, quitez le programme et faisez le"
 
 echo -n "[1/7] Entrez le nom du disque (exemple : /dev/sda) : "
 read -r disk
-echo -n "[2/7] La partition de demarrage (EFI) est $disk/"
+echo -n "[2/7] La partition de demarrage (EFI) est $disk"
 read -r bootpartition
-echo -n "[3/7] La parition principale (/) est $disk/"
+echo -n "[3/7] La parition principale (/) est $disk"
 read -r rootpartition
-echo -n "[4/7] La patition swap est $disk/"
+echo -n "[4/7] La patition swap est $disk"
 read -r swappartition
 echo -n "[5/7] Entrez le nom de l'utilisateur (sera sudoer) : "
 read -r username
