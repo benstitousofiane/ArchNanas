@@ -46,7 +46,7 @@ if [ $validation == "o" ]; then
 
 	#Montage de la patition racine et swapon sur la partition swap:
  	#Remarque : il faut d'abord monter, la racine avant la partition EFI
-	mount ${disk}}${rootpartition} /mnt
+	mount ${disk}${rootpartition} /mnt
  	mount --mkdir ${disk}${bootpartition} /mnt/boot/EFI
  	swapon ${disk}${swappartition}
 
