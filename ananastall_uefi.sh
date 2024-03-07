@@ -2,13 +2,19 @@
 echo "Bienvenue sur ArchNanas, selectionnez le disque dans lequel vous voulez l'installer"
 #----------------
 
-echo -n "[1/4] Entrez le nom du disque (exemple : /dev/sda) : "
+echo -n "[1/7] Entrez le nom du disque (exemple : /dev/sda) : "
 read -r disk
-echo -n "[2/4] Entrez le nom de l'utilisateur (sera sudoer) : "
+echo -n "[2/7] La partition de demarrage (EFI) est $disk/"
+read -r bootpartition
+echo -n "[3/7] La parition principale (/) est $disk/"
+read -r rootpartition
+echo -n "[4/7] La patition swap est $disk/"
+read -r swappartition
+echo -n "[5/7] Entrez le nom de l'utilisateur (sera sudoer) : "
 read -r username
-echo -n "[3/4] Entrez le mot de passe de l'utilisateur : "
+echo -n "[6/7] Entrez le mot de passe de l'utilisateur : "
 read -r userpassword
-echo -n "[4/4] : Entrez le mot de passe de l'utilisateur root : "
+echo -n "[7/7] : Entrez le mot de passe de l'utilisateur root : "
 read -r rootpassword
 
 echo "Nom du disque choisis : $disk"
@@ -66,16 +72,15 @@ if [ $validation == "o" ]; then
 	#Enregistre les modidications
 
 	#Initialisation du Système de fichier :
- 	mkfs.fat -F 32 ${disk}1
-  	mkfs.ext4 ${disk}2
-   	mkswap ${disk}3
-
+ 	mkfs.fat -F 32 ${disk}${bootpartition}
+  	mkfs.ext4 ${disk}${rootpartition}
+   	mkswap ${disk}${swappartition}
 
 	#Montage de la patition racine et swapon sur la partition swap:
  	#Remarque : il faut d'abord monter, la racine avant la partition EFI
-	mount ${disk}2 /mnt
- 	mount --mkdir ${disk}1 /mnt/boot/EFI
- 	swapon ${disk}3
+	mount ${disk}}${rootpartition} /mnt
+ 	mount --mkdir ${disk}${bootpartition} /mnt/boot/EFI
+ 	swapon ${disk}${swappartition}
 
   	#Un coup de reflector : acutaliser la recherche de mise à jour trier sur les 12 dernières heures, paquets provenant d'Allemagne (plus stable que celui de France) et rangé en fonction des notes.
    	reflector --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
