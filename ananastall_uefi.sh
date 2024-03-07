@@ -1,5 +1,8 @@
 #---SALUTATION---
 echo "Bienvenue sur ArchNanas, selectionnez le disque dans lequel vous voulez l'installer"
+echo ""
+echo "Vous devez avoir ecrit les partitions via cfdisk ou fdisk"
+echo "Si ca n'a pas ete fait, quitez le programme et faisez le"
 #----------------
 
 echo -n "[1/7] Entrez le nom du disque (exemple : /dev/sda) : "
@@ -35,41 +38,6 @@ if [ $validation == "o" ]; then
     	sleep "1"
 	echo "c'est partie mon kiwi ! >:)"
 	#------- PARTITIONNEMENT -----------
-
-	#créations de trois partitions :
-	#512M : partition EFI pour le démarrage
-	#TOUT sauf 4G pour la partition racine
-	#4G/Le reste pour la Swap
-
-	#Suppression de tous les partitions et de leurs signature du disque avec wipefs pour ne pas avoir d'erreurs sur une réinstallation du ou d'un autre système
-
-  	wipefs --all $disk
-
-	#génère des entré et envoit avec le pipe | les info à fdisk
-	#(ça évite d'utiliser sfdisk plus dure à manipuler)
-
-	echo -e "g\nn\n\n\n+512M\nn\n\n\n-4G\nn\n\n\n-0G\nw" | fdisk $disk
-
-	#ce que fait cette ligne :
-	#-Crée une table de partition GPT
-	#-Fait un saut de ligne
-	#
-	#-Selectionne le mode crée une partition
-	#-Fait trois saut de lignes
-	#-Choisis comme taille de partition "512M"
-	#-Fait un saut de ligne
-	#
-	#-Selectionne le mode crée une partition
-	#-Fait trois saut de lignes
-	#-Choisis comme taille de partition "Tout et laissé 4G"
-	#-Fait un saut de ligne
-	#
-	#-Selectionne le mode crée une partition
-	#-Fait trois saut de lignes
-	#-Choisis comme taille de partition 4G (le reste)
-	#-Fait un saut de ligne
-	#
-	#Enregistre les modidications
 
 	#Initialisation du Système de fichier :
  	mkfs.fat -F 32 ${disk}${bootpartition}
@@ -109,7 +77,6 @@ if [ $validation == "o" ]; then
     	#Application du fuseau horaire
      	locale-gen
       	\n
-      
      	#création du fichier de configuration locale
   	touch /etc/locale.conf
    	\n
@@ -183,9 +150,9 @@ if [ $validation == "o" ]; then
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
- 	echo "Fini LOL"
+ 	echo "LOL"
      	echo ""
-      	echo "Installation du system de base terminé !"
+      	echo "Installation du systeme de base termine !"
 
 else
 	exit 0
