@@ -20,3 +20,5 @@ Malheuresement kitty ne supporte pas le corner-radius de picom 😓 Mais alacrit
 
 étapes :
 installer : i3-gaps picom feh polybar rofi
+
+ajouter le réseau wifi avec nmcli
