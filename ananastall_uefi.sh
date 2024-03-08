@@ -118,14 +118,14 @@ if [ $validation == "o" ]; then
         \n
 	echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
         \
-	#installation de l'environnement graphique (i3-caps, lightdm driver intel et alacritty)
+	#installation de l'environnement graphique (lightdm driver intel, alacritty, i3-gaps, picom, feh, polybar, rofi)
 	pacman -S xf86-video-intel xorg --noconfirm
         \n
 	pacman -S lightdm lightdm-gtk-greeter --noconfirm
         \n
 	pacman -S i3 --noconfirm
         \n
-	pacman -S i3-gaps dmenu --noconfirm
+	pacman -S i3-gaps picom feh polybar rofi --noconfirm
         \n
 	pacman -S alacritty --noconfirm
         \n
