@@ -1,0 +1,9 @@
+SE CONNECTER A UN RESEAU WIFI
+étapes pour se connecter à un réseau wifi si necessaire :
+lister les interface wifi, changer wlan0 en fonction du nom de votre interface wifi :
+$ nmcli d wifi list ifname wlan0
+connexion (necessite le nom de l'interface et son mot de passe) :
+nmcli d wifi connect "NomDeInterface" password MotDePasse
+
+INSTALLER yay
+$ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
