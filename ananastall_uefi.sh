@@ -125,7 +125,7 @@ if [ $validation == "o" ]; then
         \n
 	pacman -S i3 --noconfirm
         \n
-	pacman -S i3-gaps dmenu --noconfirm
+	pacman -S i3-gaps picom feh polybar rofi --noconfirm
         \n
 	pacman -S alacritty --noconfirm
         \n
