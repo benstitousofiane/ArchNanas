@@ -1,0 +1,50 @@
+
+window{
+	background-color: #111111;
+	text-color: #ffffff;
+	border: none;
+	padding: 40px;
+}
+
+inputbar{
+	background-color: #111111;
+}
+prompt{
+	text-color: #f9d353;
+}
+entry{
+	text-color: #ffffff;
+}
+
+scrollbar{
+	backgorund-color: #f9d353;
+	handle-color : #f9d353;
+}
+
+element{
+	border-radius: 5px;
+	padding: 15px;
+}
+
+element normal.normal{
+	background-color: #111111;
+	text-color: #ffffff;
+}
+
+element alternate.normal{
+	background-color: #111111;
+	text-color: #ffffff;
+}
+
+element selected.normal{
+	background-color : #ffd453;
+	text-color: #111111;
+}
+
+case-indicator{
+	background-color: #f9d353;
+}
+
+listview{
+	scrollbar: false;
+}
