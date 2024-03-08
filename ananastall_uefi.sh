@@ -125,7 +125,7 @@ if [ $validation == "o" ]; then
         \n
 	pacman -S i3 --noconfirm
         \n
-	pacman -S i3-gaps picom feh polybar rofi --noconfirm
+	pacman -S i3-gaps dmenu --noconfirm
         \n
 	pacman -S alacritty --noconfirm
         \n
@@ -148,6 +148,8 @@ if [ $validation == "o" ]; then
   	) | arch-chroot /mnt
    	#Mise en place du clavier en français azerty
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
+    	mkdir /mnt/home/${unername}
+    	cp postconfig/* /mnt/home/${username}/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
