@@ -152,6 +152,7 @@ if [ $validation == "o" ]; then
      	mkdir /mnt/home/${username}/.config
     	cp -r postconfig/wallpapers/ /mnt/home/${username}/
      	cp -r postconfig/config/* /mnt/home/${username}/.config/
+      	cp postconfig/apresinstallation.txt /mnt/home/${username}/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
