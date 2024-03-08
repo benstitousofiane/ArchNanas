@@ -150,8 +150,8 @@ if [ $validation == "o" ]; then
    	cp preconfig/00-keyboard.conf /mnt/etc/X11/xorg.conf.d/
     	mkdir /mnt/home/${unername}
      	mkdir /mnt/home/${username}/.config
-    	cp postconfig/wallpapers/ /mnt/home/${username}/
-     	cp postconfig/config/* /mnt/home/${username}/.config/
+    	cp -r postconfig/wallpapers/ /mnt/home/${username}/
+     	cp -r postconfig/config/* /mnt/home/${username}/.config/
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
