@@ -8,6 +8,7 @@ C'est comme un jeu, je construis ce que j'ai envie 👨‍🏭⚒️
 Aperçu après installation :
 
 ![image](https://github.com/benstitousofiane/ArchNanas/assets/129552238/0842f952-30ac-46fb-af67-a11fe181c7b1)
+![image](https://github.com/benstitousofiane/ArchNanas/assets/129552238/0aabc124-2b8c-4b73-beeb-5feaa2971d3c)
 
 # Instruction
 bientôt... :)
