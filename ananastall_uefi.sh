@@ -153,6 +153,7 @@ if [ $validation == "o" ]; then
     	cp -r postconfig/wallpapers/ /mnt/home/${username}/
      	cp -r postconfig/config/* /mnt/home/${username}/.config/
       	cp postconfig/apresinstallation.txt /mnt/home/${username}/
+        chown -R ${username}:${username} /mnt/home/${unername}
    	#--------- CONFIGURATION SYSTEME I FIN ---------
     
  	echo "LOL"
