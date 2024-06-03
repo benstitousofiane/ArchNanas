@@ -22,3 +22,7 @@ Malheuresement kitty ne supporte pas le corner-radius de picom 😓 Mais alacrit
 installer : i3-gaps picom feh polybar rofi
 
 ajouter le réseau wifi avec nmcli
+
+
+Je ne matient pour le moment plus le script BIOS, je n'en vois pas l'utilité à cause des machines actuelles qui sont heureusement essentiellement aujourd'hui basé sur de l'UEFI.
+Si vous voulez l'adapter vous même, passé par une machine virtuelle sous BIOS/MBR
