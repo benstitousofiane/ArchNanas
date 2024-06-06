@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchNanas</title>
+</head>
+<body>
+    <header>
+        <a href=""><h1>BSA / ArchNanas🍍</h1></a>
+    </header>
+    <main>
+
+        <div id="images">
+            <img src="img/1.png" alt="image1">
+            <img src="img/2.png" alt="image2">
+        </div>
+        <h1>Comment l'installer</h1>
+        <div id="instructions">
+            <p>L'installation se fait depuis <a href="https://archlinux.org/download/" target="_blank">l'image disque d'Arch Linux</a></p>
+            <p>Vous pouvez l'installer en dualboot sans problème à condition que vous êtes en UEFI, le script BIOS n'est plus maintenu.</p>
+            <h2>Avoir un partitionnement prêts :</h2>
+            <p>Il faut avoir 3 partitions en FAT32:</p>
+            <ul>
+                <li>
+                    <p>Une petite partition d'1G pour le démarrage du système / partition EFI (n'altère pas la partition EFI déjà présente sur votre ordinateur)</p>
+                </li>
+                <li>
+                    <p>Une partition d'au moins 4G pour l'espace d'échange / partition SWAP</p>
+                </li>
+                <li>
+                    <p>Le reste pour la partition racine "/", doit faire au moins 32G pour une utilisation confortable.</p>
+                </li>
+            </ul>
+
+            <h2>Installer git</h2>
+            <p class="command">pacman -Sy</p>
+            <p class="command">pacman -S git</p>
+            <h2>Cloner ensuite le repo qui a le script : </h2>
+            <p class="command">git clone https://github.com/benstitousofiane/ArchNanas</p>
+            <h2>Et lancer le script ✨</h2>
+            <p class="command">cd ArchNanas/</p>
+            <h2>Sous UEFI :</h2>
+            <p class="command">sh ananastall_uefi.sh</p>
+            <h2>Sous BIOS/MBR <u>(non recommander)</u>:</h2>
+            <p class="command">sh ananastall_bios.sh</p>
+
+            <h2>Maintenant faites ce qu'on vous demandes.</h2>
+            <p>Si fdisk indique un certain message concernant les disques, tapez "y" pour valider le formatage des partitions sélectionner.</p>
+            <h2>Vidéo : (bientôt)</h2>
+        </div>
+    </main>
+</body>
+</html>

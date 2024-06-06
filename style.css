@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #ffd453;
+    color: #558115;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* background-color: blue; */
+}
+
+img{
+    width: 600px;
+    border: 1px solid #111111;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+div#instructions{
+    /* margin-right: 300px; */
+    width: 100%;
+    /* background-color: red; */
+}
+
+ul{
+    border: 1px solid #558115;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+
+li{
+    
+}
+
+p{
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+h2{
+    margin-left: 15px;
+}
+
+p.command{
+    background-color: #111111;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    color: #558115;
+}
+
+main h1{
+    color: #ffd453;
+    background-color: #558115;    
+    text-align: center;
+    /* margin: 0px 0px 0px 0px; */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+header{
+    background-color: #111111;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+header a{
+    text-decoration: none;
+    color: #558115;
+}
+
+hr{
+    border: 5px solid #222222;
+    border-radius: 10px;
+}
+
+/* personaliser la scrollbar */
+
+::-webkit-scrollbar{
+    background-color: #111111;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #222222;
+}
